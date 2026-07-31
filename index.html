@@ -419,11 +419,34 @@
           <!-- Right Video Showcase Column -->
           <div class="lg:col-span-6">
             <div class="relative rounded-3xl overflow-hidden border-2 border-primary/40 shadow-2xl shadow-primary/20 bg-surface-container-high group">
-              <!-- Clear Bright Video playing with voice without mute button -->
-              <video id="heroVideo" autoplay loop playsinline class="w-full h-[250px] sm:h-[300px] md:h-[340px] object-cover rounded-3xl">
+              <!-- Clear Bright Video playing with instant voice without mute button -->
+              <video id="heroVideo" autoplay loop playsinline preload="auto" class="w-full h-[250px] sm:h-[300px] md:h-[340px] object-cover rounded-3xl">
                 <source src="./hero-video.mp4" type="video/mp4"/>
                 Your browser does not support video.
               </video>
+              <script>
+                (function() {
+                  const v = document.getElementById('heroVideo');
+                  if (v) {
+                    v.volume = 1.0;
+                    v.muted = false;
+                    const p = v.play();
+                    if (p !== undefined) {
+                      p.catch(() => {
+                        v.muted = true;
+                        v.play();
+                        const startVoice = () => {
+                          v.muted = false;
+                          v.volume = 1.0;
+                          v.play();
+                          ['click', 'touchstart', 'mousemove', 'scroll', 'keydown'].forEach(evt => window.removeEventListener(evt, startVoice));
+                        };
+                        ['click', 'touchstart', 'mousemove', 'scroll', 'keydown'].forEach(evt => window.addEventListener(evt, startVoice, { once: true }));
+                      });
+                    }
+                  }
+                })();
+              </script>
             </div>
           </div>
 
