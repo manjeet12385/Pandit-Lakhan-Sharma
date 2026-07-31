@@ -419,12 +419,34 @@
           <!-- Right Video Showcase Column -->
           <div class="lg:col-span-6">
             <div class="relative rounded-3xl overflow-hidden border-2 border-primary/40 shadow-2xl shadow-primary/20 bg-surface-container-high group">
-              <!-- Clear Bright Video playing with instant voice without mute button -->
-              <video id="heroVideo" autoplay loop playsinline preload="auto" class="w-full h-[250px] sm:h-[300px] md:h-[340px] object-cover rounded-3xl">
+              <!-- Clear Bright Video with mobile touch audio unlock -->
+              <video id="heroVideo" autoplay loop playsinline preload="auto" onclick="unmuteHeroVideo()" ontouchstart="unmuteHeroVideo()" class="w-full h-[250px] sm:h-[300px] md:h-[340px] object-cover rounded-3xl cursor-pointer">
                 <source src="./hero-video.mp4" type="video/mp4"/>
                 Your browser does not support video.
               </video>
+
+              <!-- Mobile Friendly Tap for Sound Notice -->
+              <div id="mobileSoundNotice" onclick="unmuteHeroVideo()" ontouchstart="unmuteHeroVideo()" class="absolute bottom-3 right-3 bg-amber-500/90 text-black px-3.5 py-1.5 rounded-full text-xs font-bold shadow-xl backdrop-blur-md flex items-center gap-1.5 animate-bounce cursor-pointer z-20">
+                <span class="material-symbols-outlined text-sm">volume_up</span>
+                <span>आवाज़ सुनें / Tap Sound</span>
+              </div>
+
               <script>
+                function unmuteHeroVideo() {
+                  const v = document.getElementById('heroVideo');
+                  if (v) {
+                    v.muted = false;
+                    v.volume = 1.0;
+                    const p = v.play();
+                    if (p !== undefined) {
+                      p.then(() => {
+                        const notice = document.getElementById('mobileSoundNotice');
+                        if (notice) notice.style.opacity = '0';
+                      }).catch(() => {});
+                    }
+                  }
+                }
+
                 (function() {
                   const v = document.getElementById('heroVideo');
                   if (v) {
@@ -435,16 +457,15 @@
                       p.catch(() => {
                         v.muted = true;
                         v.play();
-                        const startVoice = () => {
-                          v.muted = false;
-                          v.volume = 1.0;
-                          v.play();
-                          ['click', 'touchstart', 'mousemove', 'scroll', 'keydown'].forEach(evt => window.removeEventListener(evt, startVoice));
-                        };
-                        ['click', 'touchstart', 'mousemove', 'scroll', 'keydown'].forEach(evt => window.addEventListener(evt, startVoice, { once: true }));
                       });
                     }
                   }
+
+                  // Mobile & Desktop universal gesture unlock
+                  ['touchstart', 'touchend', 'click', 'scroll', 'pointerdown'].forEach(evt => {
+                    window.addEventListener(evt, unmuteHeroVideo, { passive: true });
+                    document.addEventListener(evt, unmuteHeroVideo, { passive: true });
+                  });
                 })();
               </script>
             </div>
