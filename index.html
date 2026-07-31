@@ -419,11 +419,17 @@
           <!-- Right Video Showcase Column -->
           <div class="lg:col-span-6">
             <div class="relative rounded-3xl overflow-hidden border-2 border-primary/40 shadow-2xl shadow-primary/20 bg-surface-container-high group">
-              <!-- Clear Bright Video -->
-              <video autoplay loop muted playsinline controls class="w-full h-[250px] sm:h-[300px] md:h-[340px] object-cover rounded-3xl">
+              <!-- Clear Bright Video without controls bar -->
+              <video id="heroVideo" autoplay loop playsinline class="w-full h-[250px] sm:h-[300px] md:h-[340px] object-cover rounded-3xl cursor-pointer" onclick="toggleHeroSound()">
                 <source src="./hero-video.mp4" type="video/mp4"/>
                 Your browser does not support video.
               </video>
+              
+              <!-- Floating Sound Toggle Badge -->
+              <button id="heroSoundBtn" onclick="toggleHeroSound()" class="absolute bottom-4 right-4 bg-black/70 backdrop-blur-md text-primary border border-primary/40 px-3 py-1.5 rounded-full text-xs font-bold flex items-center gap-1.5 hover:bg-primary hover:text-black transition-all duration-300 shadow-lg">
+                <span class="material-symbols-outlined text-sm" id="heroSoundIcon">volume_up</span>
+                <span id="heroSoundText">Sound On</span>
+              </button>
             </div>
           </div>
 
@@ -1587,8 +1593,56 @@
       }
     }
 
-    // Auto-restore user's preferred language on page load
+    // Video Sound & Autoplay Controller
+    function toggleHeroSound() {
+      const video = document.getElementById('heroVideo');
+      const icon = document.getElementById('heroSoundIcon');
+      const text = document.getElementById('heroSoundText');
+      if (video) {
+        if (video.muted) {
+          video.muted = false;
+          if (icon) icon.innerText = 'volume_up';
+          if (text) text.innerText = 'Sound On';
+        } else {
+          video.muted = true;
+          if (icon) icon.innerText = 'volume_off';
+          if (text) text.innerText = 'Mute';
+        }
+      }
+    }
+
+    function enableAudioAutoplay() {
+      const video = document.getElementById('heroVideo');
+      if (video) {
+        video.muted = false;
+        video.play().then(() => {
+          const icon = document.getElementById('heroSoundIcon');
+          const text = document.getElementById('heroSoundText');
+          if (icon) icon.innerText = 'volume_up';
+          if (text) text.innerText = 'Sound On';
+        }).catch(() => {
+          video.muted = true;
+          video.play();
+          const unmuteOnGesture = () => {
+            video.muted = false;
+            const icon = document.getElementById('heroSoundIcon');
+            const text = document.getElementById('heroSoundText');
+            if (icon) icon.innerText = 'volume_up';
+            if (text) text.innerText = 'Sound On';
+            window.removeEventListener('click', unmuteOnGesture);
+            window.removeEventListener('touchstart', unmuteOnGesture);
+            window.removeEventListener('scroll', unmuteOnGesture);
+          };
+          window.addEventListener('click', unmuteOnGesture, { once: true });
+          window.addEventListener('touchstart', unmuteOnGesture, { once: true });
+          window.addEventListener('scroll', unmuteOnGesture, { once: true });
+        });
+      }
+    }
+
+    // Auto-restore user's preferred language on page load & start video audio
     window.addEventListener('load', () => {
+      enableAudioAutoplay();
       const savedLang = localStorage.getItem('preferredLang') || 'en';
       if (savedLang !== 'en') {
         changeLanguage(savedLang);
