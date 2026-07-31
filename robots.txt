@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pandit-lakhan-sharma.vercel.app/sitemap.xml
