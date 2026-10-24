@@ -1,0 +1,23 @@
+{
+  "short_name": "Pandit Lakhan Sharma",
+  "name": "Pandit Lakhan Sharma - Best Astrologer & Baglamukhi Anushthan Specialist in India",
+  "description": "Authentic Pan-India Maa Baglamukhi Anushthan, Vedic Kundali Consultation, Havan, Vastu Shastra & Kalsarpa Dosh Remedies across Delhi NCR, Mumbai, Bangalore, Jaipur, Indore, Ahmedabad, Hyderabad, Pune, Kolkata & All India.",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "favicon.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#131314",
+  "theme_color": "#131314",
+  "display": "standalone",
+  "orientation": "portrait",
+  "categories": ["astrology", "lifestyle", "spiritual"]
+}

@@ -1,4 +1,18 @@
+# Robots.txt for Pandit Lakhan Sharma - Best Astrologer & Baglamukhi Specialist in Nalkheda
 User-agent: *
 Allow: /
+Allow: /*.html
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.png
+Allow: /*.webp
+Allow: /*.svg
+Allow: /*.mp4
 
-Sitemap: https://pandit-lakhan-sharma.vercel.app/sitemap.xml
+Crawl-delay: 1
+
+# Host directive
+Host: https://www.nalkhedapanditlakhansharma.com
+
+# Sitemap location
+Sitemap: https://www.nalkhedapanditlakhansharma.com/sitemap.xml
