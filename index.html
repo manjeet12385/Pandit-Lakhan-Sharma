@@ -624,6 +624,31 @@ body { top: 0 !important; }
 #goog-gt-tt { display: none !important; }
 .goog-te-banner-frame { display: none !important; visibility: hidden !important; }
 body { position: static !important; }
+
+/* Universal Cross-Device Responsive Perfection (Mobile, Tablet, Laptop, Desktop) */
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100vw;
+  -webkit-overflow-scrolling: touch;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img, video, canvas {
+  max-width: 100%;
+}
+
+/* Ensure padding on mobile devices so sticky bottom bar doesn't overlap footer content */
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 72px !important;
+  }
+  button, a {
+    touch-action: manipulation;
+  }
+}
 </style>
 
 </head>
@@ -634,9 +659,9 @@ body { position: static !important; }
 
   <!-- Header Navigation -->
   <header class="fixed top-0 left-0 right-0 w-full z-50 bg-[#131314]/98 backdrop-blur-xl border-b border-primary/20 shadow-lg shadow-black/50 transition-all duration-300" id="mainHeader">
-    <nav class="max-w-container-max mx-auto px-3 sm:px-gutter flex justify-between items-center h-14 sm:h-20 lg:h-44 py-1.5 lg:py-3">
+    <nav class="max-w-container-max mx-auto px-3 sm:px-gutter flex justify-between items-center h-14 sm:h-18 lg:h-22 py-1.5 sm:py-2">
       <a href="#home" class="flex items-center gap-2 group shrink-0">
-        <img src="./logo.png" alt="Pandit Lakhan Sharma" class="h-10 sm:h-16 lg:h-40 max-h-[44px] sm:max-h-[70px] lg:max-h-[200px] w-auto object-contain divine-aura group-hover:scale-105 transition-transform"/>
+        <img src="./logo.png" alt="Pandit Lakhan Sharma" class="h-10 sm:h-14 lg:h-18 max-h-[44px] sm:max-h-[58px] lg:max-h-[72px] w-auto object-contain divine-aura group-hover:scale-105 transition-transform"/>
       </a>
 
       <!-- Desktop Navigation Links (Visible on LG 1024px+ screens) -->
@@ -729,7 +754,7 @@ body { position: static !important; }
 
   <main class="relative z-10">
     <!-- Hero Section -->
-    <section id="home" class="relative pt-16 sm:pt-24 md:pt-48 pb-8 md:pb-12 overflow-hidden bg-gradient-to-b from-surface via-surface-container-lowest to-surface">
+    <section id="home" class="relative pt-20 sm:pt-24 lg:pt-28 pb-8 md:pb-12 overflow-hidden bg-gradient-to-b from-surface via-surface-container-lowest to-surface">
       <div class="max-w-container-max mx-auto px-gutter relative z-10">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
