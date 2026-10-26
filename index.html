@@ -661,7 +661,7 @@ img, video, canvas {
   <header class="fixed top-0 left-0 right-0 w-full z-50 bg-[#131314]/98 backdrop-blur-xl border-b border-primary/20 shadow-lg shadow-black/50 transition-all duration-300" id="mainHeader">
     <nav class="max-w-container-max mx-auto px-3 sm:px-gutter flex justify-between items-center h-14 sm:h-18 lg:h-22 py-1.5 sm:py-2">
       <a href="#home" class="flex items-center gap-2 group shrink-0">
-        <img src="./logo.png" alt="Pandit Lakhan Sharma" class="h-10 sm:h-14 lg:h-18 max-h-[44px] sm:max-h-[58px] lg:max-h-[72px] w-auto object-contain divine-aura group-hover:scale-105 transition-transform"/>
+        <img src="./logo.png" onerror="if(this.src.indexOf('logo_transparent_clean.png')===-1){this.src='./logo_transparent_clean.png';}" alt="Pandit Lakhan Sharma" class="h-10 sm:h-14 lg:h-18 max-h-[44px] sm:max-h-[58px] lg:max-h-[72px] w-auto object-contain divine-aura group-hover:scale-105 transition-transform"/>
       </a>
 
       <!-- Desktop Navigation Links (Visible on LG 1024px+ screens) -->
@@ -789,8 +789,9 @@ img, video, canvas {
           <div class="lg:col-span-6">
             <div class="relative rounded-3xl overflow-hidden border-2 border-primary/40 shadow-2xl shadow-primary/20 bg-surface-container-high group">
               <!-- Clear Bright Video guaranteed smooth autoplay on all Mobile & Desktop devices -->
-              <video id="heroVideo" autoplay loop muted playsinline webkit-playsinline x5-playsinline x5-video-player-type="h5" preload="auto" class="w-full h-[250px] sm:h-[300px] md:h-[340px] object-cover rounded-3xl pointer-events-none select-none">
+              <video id="heroVideo" poster="./pandit-ji.jpg" autoplay loop muted playsinline webkit-playsinline x5-playsinline x5-video-player-type="h5" preload="auto" class="w-full h-[250px] sm:h-[300px] md:h-[340px] object-cover rounded-3xl pointer-events-none select-none">
                 <source src="./hero-video.mp4" type="video/mp4"/>
+                <source src="/hero-video.mp4" type="video/mp4"/>
                 Your browser does not support video.
               </video>
 
@@ -1479,7 +1480,7 @@ img, video, canvas {
   <footer class="bg-surface-container-lowest border-t border-outline-variant/10 w-full relative z-10">
     <div class="max-w-container-max mx-auto px-4 sm:px-gutter py-10 md:py-20 grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-10 md:gap-16">
       <div class="col-span-2">
-        <img src="./logo.png" alt="Pandit Lakhan Sharma" class="h-24 sm:h-40 md:h-64 max-h-[120px] sm:max-h-[200px] md:max-h-[300px] w-auto object-contain mb-6 md:mb-8 divine-aura"/>
+        <img src="./logo.png" onerror="if(this.src.indexOf('logo_transparent_clean.png')===-1){this.src='./logo_transparent_clean.png';}" alt="Pandit Lakhan Sharma" class="h-24 sm:h-40 md:h-64 max-h-[120px] sm:max-h-[200px] md:max-h-[300px] w-auto object-contain mb-6 md:mb-8 divine-aura"/>
         <p class="text-on-surface-variant/80 font-body-md max-w-md mb-6 md:mb-10 leading-relaxed text-xs sm:text-sm md:text-base">
           Based in Agar &amp; Nalkheda, India, Pandit Lakhan Sharma is a renowned astrologer carrying 15+ years of Vedic experience and a traditional Brahmin lineage. Providing divine clarity and spiritual remedies worldwide.
         </p>
