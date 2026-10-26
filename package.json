@@ -5,7 +5,6 @@
   "main": "index.html",
   "scripts": {
     "dev": "node server.js",
-    "start": "node server.js",
     "serve": "npx -y serve . -l 3000"
   },
   "keywords": [
