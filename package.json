@@ -2,8 +2,8 @@
   "name": "pandit-lakhan-sharma",
   "version": "1.0.0",
   "description": "Pandit Lakhan Sharma - Best Astrologer & Puja Specialist in Nalkheda",
-  "main": "index.html",
   "scripts": {
+    "build": "echo 'Static site ready'",
     "dev": "node server.js",
     "serve": "npx -y serve . -l 3000"
   },
