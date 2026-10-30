@@ -108,7 +108,7 @@ server.on('error', (err) => {
 });
 
 server.listen(PORT, () => {
-  console.log(`\n✨ Pandit Suraj Guru website server running!`);
+  console.log(`\n✨ Pandit Lakhan Sharma website server running!`);
   console.log(`\n  ➜  Local:   http://localhost:${PORT}`);
   console.log(`  ➜  Network: http://127.0.0.1:${PORT}\n`);
   console.log(`Ready to serve requests... (Press Ctrl+C to stop)`);

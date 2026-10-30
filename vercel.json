@@ -1,5 +1,5 @@
 {
-  "cleanUrls": false,
+  "cleanUrls": true,
   "redirects": [
     {
       "source": "/(.*)",
@@ -26,6 +26,10 @@
   ],
   "rewrites": [
     {
+      "source": "/puja-in/nalkheda",
+      "destination": "/astrologer-in-nalkheda.html"
+    },
+    {
       "source": "/((?!.*\\.[^/]+$).*)",
       "destination": "/$1.html"
     }
@@ -45,6 +49,18 @@
         {
           "key": "X-XSS-Protection",
           "value": "1; mode=block"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains; preload"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
         }
       ]
     },
